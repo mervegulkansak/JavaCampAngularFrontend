@@ -9,12 +9,19 @@ import { Product } from '../Models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  apiURL = "http://localhost:8080/api/products/getall"
+  apiURL = "http://localhost:8080/api/"
   constructor(private httpClient: HttpClient) { }
 
   getProducts(): Observable<ListResponseModel<Product>> {
+    let newPath = this.apiURL + "/products/getall"
+    return this.httpClient.get<ListResponseModel<Product>>(newPath)
+    
+  }
 
-    return this.httpClient.get<ListResponseModel<Product>>(this.apiURL)
+  getProductsByCategory(category:number): Observable<ListResponseModel<Product>> {
+    let newPath = this.apiURL + "/products/getByCategoryId?category=" + category
+    // console.log(newPath);
+    return this.httpClient.get<ListResponseModel<Product>>(newPath)
     
   }
 }

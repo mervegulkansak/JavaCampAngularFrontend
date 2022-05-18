@@ -2,6 +2,7 @@ import { ProductService } from './../../services/product.service';
 
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/product';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -18,10 +19,17 @@ export class ProductComponent implements OnInit {
   //   message:"",
   //   success:true
   // };
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getProducts()
+  
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["category"]){
+        this.getProductsByCategory(params["category"])
+      }else{
+        this.getProducts()
+      }
+    })
   }
   getProducts() {
     this.productService.getProducts().subscribe(response=>{
@@ -30,4 +38,10 @@ export class ProductComponent implements OnInit {
     })
   }
 
+  getProductsByCategory(category:number) {
+    this.productService.getProductsByCategory(category).subscribe(response=>{
+      this.products = response.data
+      this.dataLoaded =true;
+    })
+  }
 }
