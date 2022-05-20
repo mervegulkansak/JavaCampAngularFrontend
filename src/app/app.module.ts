@@ -8,12 +8,14 @@ import { ProductComponent } from './Components/product/product.component';
 import { CategoryComponent } from './Components/category/category.component';
 import { NaviComponent } from './Components/navi/navi.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     CategoryComponent,
-    NaviComponent
+    NaviComponent,
+  
     
   ],
   imports: [

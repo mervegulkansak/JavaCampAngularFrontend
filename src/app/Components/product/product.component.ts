@@ -24,8 +24,13 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   
     this.activatedRoute.params.subscribe(params=>{
+
       if(params["category"]){
         this.getProductsByCategory(params["category"])
+
+      if(params["categoryId"]){
+        this.getProductsByCategory(params["categoryId"])
+
       }else{
         this.getProducts()
       }
@@ -33,14 +38,20 @@ export class ProductComponent implements OnInit {
   }
   getProducts() {
     this.productService.getProducts().subscribe(response=>{
-      this.products = response.data
+      console.log(this.products = response.data)
       this.dataLoaded =true;
     })
   }
 
+
   getProductsByCategory(category:number) {
     this.productService.getProductsByCategory(category).subscribe(response=>{
       this.products = response.data
+    })
+  getProductsByCategory(categoryId:number) {
+    this.productService.getProductsByCategory(categoryId).subscribe(response=>{
+     console.log(this.products = response.data)
+
       this.dataLoaded =true;
     })
   }
