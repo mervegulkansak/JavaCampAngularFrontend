@@ -9,13 +9,21 @@
     
 </div>
 
+<div class="mb-3">
+    <label for="filterText" class="form-label"><b>Ürün Ara</b></label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aradığınız ürünü yazın">
+  </div >
 
+  <div *ngIf="filterText.length>2" class = "alert alert-warning">
+    {{filterText}} aradınız.
+  </div>
 <table *ngIf="dataLoaded == true" class="table">
     <thead>
         <tr>
             <th>ID</th>
             <th>Product Name</th>
             <th>Price</th>
+            <th>Kdv'li Fiyat</th>
             <th>Stock</th>
             <th>Qantity Per Unit</th>
             <th>Category ID</th>
@@ -26,8 +34,9 @@
     </thead>
     <tr *ngFor="let product of products" > 
         <td>{{product.id}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.unitPrice}}</td>
+        <td>{{product.productName | uppercase}}</td>
+        <td>{{product.unitPrice|currency }}</td>
+        <td>{{product.unitPrice |vatAdded:10 | currency}}</td>
         <td>{{product.unitsInStock}}</td>
         <td>{{product.quantityPerUnit}}</td>
         <td>{{product.category.categoryId}}</td>
