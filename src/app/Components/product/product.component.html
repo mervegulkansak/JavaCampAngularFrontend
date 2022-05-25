@@ -29,10 +29,12 @@
             <th>Qantity Per Unit</th>
             <th>Category ID</th>
             <th>Category Name</th>
+        
 
 
         </tr>
     </thead>
+    <tbody>
     <tr *ngFor="let product of products | filterPipe:filterText">
         <td>{{product.id}}</td>
         <td>{{product.productName | uppercase}}</td>
@@ -42,7 +44,7 @@
         <td>{{product.quantityPerUnit}}</td>
         <td>{{product.category.categoryId}}</td>
         <td>{{product.category.categoryName}}</td>
-
-
+        <td><button (click)="addToCart(product)" type="button" class="btn btn-success btn-sm">Sepete Ekle</button></td>
     </tr>
+</tbody>
 </table>
