@@ -29,9 +29,6 @@ export class ProductComponent implements OnInit {
       if(params["category"]){
         this.getProductsByCategory(params["category"])
 
-      if(params["categoryId"]){
-        this.getProductsByCategory(params["categoryId"])
-
       }else{
         this.getProducts()
       }
@@ -45,10 +42,10 @@ export class ProductComponent implements OnInit {
   }
 
 
-  getProductsByCategory(category:number) {
-    this.productService.getProductsByCategory(category).subscribe(response=>{
-      this.products = response.data
-    })
+  // getProductsByCategory(category:number) {
+  //   this.productService.getProductsByCategory(category).subscribe(response=>{
+  //     this.products = response.data
+  //   })
   getProductsByCategory(categoryId:number) {
     this.productService.getProductsByCategory(categoryId).subscribe(response=>{
      console.log(this.products = response.data)

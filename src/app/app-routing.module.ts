@@ -10,7 +10,7 @@ const routes: Routes = [
 
   {path:"products/category/:category", component:ProductComponent}
 
-  {path:"products/category/:categoryId", component:ProductComponent}
+
 
 ];
 
