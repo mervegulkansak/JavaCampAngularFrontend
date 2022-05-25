@@ -29,7 +29,7 @@
             <th>Qantity Per Unit</th>
             <th>Category ID</th>
             <th>Category Name</th>
-        
+            <th></th>
 
 
         </tr>
@@ -44,7 +44,8 @@
         <td>{{product.quantityPerUnit}}</td>
         <td>{{product.category.categoryId}}</td>
         <td>{{product.category.categoryName}}</td>
-        <td><button (click)="addToCart(product)" type="button" class="btn btn-success btn-sm">Sepete Ekle</button></td>
+        <td><button (click)="addToCart(product)" 
+            type="button" class="btn btn-success">Sepete ekle</button></td>
     </tr>
 </tbody>
 </table>
