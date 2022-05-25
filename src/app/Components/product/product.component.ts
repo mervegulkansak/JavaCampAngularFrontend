@@ -40,12 +40,6 @@ export class ProductComponent implements OnInit {
       this.dataLoaded =true;
     })
   }
-
-
-  // getProductsByCategory(category:number) {
-  //   this.productService.getProductsByCategory(category).subscribe(response=>{
-  //     this.products = response.data
-  //   })
   getProductsByCategory(categoryId:number) {
     this.productService.getProductsByCategory(categoryId).subscribe(response=>{
      console.log(this.products = response.data)
