@@ -9,15 +9,14 @@
 
 </div>
 
-<div class="me-2">
-    <label for="filterText" class="form-label "><b>Ürün Ara</b></label>
-    <input type="search" [(ngModel)]="filterText" class="form-control me-2" id="filterText"
-        placeholder="Aradığınız ürünü yazın">
-</div>
-
-<div *ngIf="filterText.length>2" class="alert alert-warning">
+<div class="mb-3">
+    <label for="filterText" class="form-label">Ürün ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" 
+    placeholder="arama ifadesi giriniz">
+  </div>
+  <div *ngIf="filterText.length>1" class="alert alert-success">
     {{filterText}} aradınız.
-</div>
+  </div>
 <table *ngIf="dataLoaded == true" class="table">
     <thead>
         <tr>

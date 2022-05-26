@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { Product } from './../../Models/product';
 import { ProductService } from './../../services/product.service';
 
@@ -13,44 +14,53 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductComponent implements OnInit {
 
-  
+
   products: Product[] = [];
   dataLoaded = false;
-  filterText=" ";
+  filterText = " ";
   // productResponseModel:ProductResponseModel={
   //   data : this.products,
   //   message:"",
   //   success:true
   // };
-  constructor(private productService:ProductService, private activatedRoute:ActivatedRoute, private toastrService:ToastrService) { }
+  constructor(private productService: ProductService,
+     private activatedRoute: ActivatedRoute, 
+     private toastrService: ToastrService,
+     private cartService:CartService) { }
 
   ngOnInit(): void {
-  
-    this.activatedRoute.params.subscribe(params=>{
 
-      if(params["category"]){
+    this.activatedRoute.params.subscribe(params => {
+
+      if (params["category"]) {
         this.getProductsByCategory(params["category"])
 
-      }else{
+      } else {
         this.getProducts()
       }
     })
   }
   getProducts() {
-    this.productService.getProducts().subscribe(response=>{
+    this.productService.getProducts().subscribe(response => {
       this.products = response.data
-      this.dataLoaded =true;
+      this.dataLoaded = true;
     })
   }
-  getProductsByCategory(categoryId:number) {
-    this.productService.getProductsByCategory(categoryId).subscribe(response=>{
-    this.products = response.data
-    this.dataLoaded =true;
+  getProductsByCategory(categoryId: number) {
+    this.productService.getProductsByCategory(categoryId).subscribe(response => {
+      this.products = response.data
+      this.dataLoaded = true;
     })
   }
 
-  addToCart(product:Product){
-   this.toastrService.success("Sepete Eklendi",product.productName)
+  addToCart(product: Product) {
+    if (product.id === 1) {
+      this.toastrService.error("Hata", "Bu ürün sepete eklenemez")
+    } else {
+      this.toastrService.success("Sepete Eklendi", product.productName)
+      this.cartService.addToCart(product)
+    }
+
   }
 }
 
