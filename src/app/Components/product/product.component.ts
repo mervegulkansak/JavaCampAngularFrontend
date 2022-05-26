@@ -53,3 +53,4 @@ export class ProductComponent implements OnInit {
    console.log( this.toastrService.success("Sepete Eklendi",product.productName))
   }
 }
+
