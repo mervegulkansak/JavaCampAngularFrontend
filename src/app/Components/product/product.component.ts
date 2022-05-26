@@ -50,7 +50,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product:Product){
-   console.log( this.toastrService.success("Sepete Eklendi",product.productName))
+   this.toastrService.success("Sepete Eklendi",product.productName)
   }
 }
 
