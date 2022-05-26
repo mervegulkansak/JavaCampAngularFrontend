@@ -5,7 +5,13 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li *ngFor="let cartItem of cartItems">
-            <a class="dropdown-item">{{cartItem.product.productName}}  <span class="badge bg-success">  {{cartItem.quantity}}</span> <span (click)="removeFromCart(cartItem.product)" class="badge bg-danger">Sil</span></a> 
+            <a class="dropdown-item">{{cartItem.product.productName}} 
+                <span (click)="decreaseFromCart(cartItem.product)"  class="badge bg-danger">-</span> 
+                    <span class="badge rounded-pill bg-light text-dark">
+                        {{cartItem.quantity}}
+                    </span>
+                <span (click)="increaseFromCart(cartItem.product)" class="badge bg-success">+</span> 
+                <div (click)="removeFromCart(cartItem.product)" class="btn btn-danger btn-sm ">Sil</div></a> 
         </li>
 
         <li>

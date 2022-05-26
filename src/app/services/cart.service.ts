@@ -26,6 +26,8 @@ export class CartService {
     let item:CartItem = CartItems.find(c=>c.product.id===product.id);
     CartItems.splice(CartItems.indexOf(item),1);
   }
+
+  
   list():CartItem[]{
     return CartItems;
   }
