@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
 
   products: Product[] = [];
   dataLoaded = false;
-  filterText = " ";
+  filterText = "";
   // productResponseModel:ProductResponseModel={
   //   data : this.products,
   //   message:"",
@@ -63,4 +63,3 @@ export class ProductComponent implements OnInit {
 
   }
 }
-

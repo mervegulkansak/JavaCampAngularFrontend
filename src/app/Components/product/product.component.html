@@ -41,8 +41,8 @@
         <td>{{product.unitPrice |vatAdded:18 | currency:"₺"}}</td>
         <td>{{product.unitsInStock}}</td>
         <td>{{product.quantityPerUnit}}</td>
-        <td>{{product.category.categoryId}}</td>
-        <td>{{product.category.categoryName}}</td>
+        <td>{{product?.category?.categoryId ?? '' }}</td>
+        <td>{{product?.category?.categoryName ?? '' }}</td>
         <td><button (click)="addToCart(product)" type="button" class="btn btn-success">
             Sepete ekle</button></td>
 
