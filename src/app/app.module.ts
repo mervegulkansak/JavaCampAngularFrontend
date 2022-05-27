@@ -8,12 +8,13 @@ import { ProductComponent } from './Components/product/product.component';
 import { CategoryComponent } from './Components/category/category.component';
 import { NaviComponent } from './Components/navi/navi.component';
 import { VatAddedPipe } from './Pipes/vat-added.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipePipe } from './Pipes/filter-pipe.pipe';
 
 import { ToastrModule  } from 'ngx-toastr';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { CartSummaryComponent } from './Components/cart-summary/cart-summary.component'
+import { CartSummaryComponent } from './Components/cart-summary/cart-summary.component';
+import { ProductAddComponent } from './Components/product-add/product-add.component'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CartSummaryComponent } from './Components/cart-summary/cart-summary.com
     VatAddedPipe,
     FilterPipePipe,
     CartSummaryComponent,
+    ProductAddComponent,
   
     
   ],
@@ -33,6 +35,7 @@ import { CartSummaryComponent } from './Components/cart-summary/cart-summary.com
     HttpClientModule,
     FormsModule, 
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })
