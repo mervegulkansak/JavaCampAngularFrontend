@@ -1,7 +1,7 @@
 <li *ngIf="cartItems.length>0" class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
-        Sepetim
+        My Cart
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li *ngFor="let cartItem of cartItems">
@@ -11,12 +11,12 @@
                         {{cartItem.quantity}}
                     </span>
                 <span (click)="increaseFromCart(cartItem.product)" class="badge bg-success">+</span> 
-                <div (click)="removeFromCart(cartItem.product)" class="btn btn-danger btn-sm ">  Sil  </div></a> 
+                <div (click)="removeFromCart(cartItem.product)" class="btn btn-danger btn-sm ">  Delete  </div></a> 
         </li>
 
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item">Sepete Git</a></li>
+        <li><a class="dropdown-item">View Cart</a></li>
     </ul>
 </li>
